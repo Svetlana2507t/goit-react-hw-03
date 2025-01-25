@@ -23,7 +23,7 @@ function App() {
         alert(`${newContact.name} is already in contacts!`);
         return prevContacts;
       }
-      console.log('Form submitted with values:', newContact);
+      //console.log('Form submitted with values:', newContact);
       return [...prevContacts, { id: nanoid(), ...newContact }];
     });
   };

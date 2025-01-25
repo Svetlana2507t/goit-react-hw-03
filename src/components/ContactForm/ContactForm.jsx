@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
 
 function ContactForm({ onAdd }) {
   const handleSubmit = (values, actions) => {
-    console.log('Form submitted with values:', values);
+    //console.log('Form submitted with values:', values);
     onAdd(values);
     actions.resetForm();
   };
