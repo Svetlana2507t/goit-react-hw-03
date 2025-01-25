@@ -11,6 +11,7 @@ function App() {
     const savedContacts = localStorage.getItem('contacts');
     return savedContacts ? JSON.parse(savedContacts) : initialContacts;
   });
+  const [filter, setFilter] = useState('');
 
   const addContact = newContact => {
     setContacts(prevContacts => {
@@ -30,14 +31,6 @@ function App() {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  //const [searchTerm, setSearchTerm] = useState('');
-  // const handleSearch = event => {
-  //   setSearchTerm(event.target.value.toLowerCase());
-  // };
-  // const filteredContacts = contacts.filter(contact =>
-  //   contact.name.toLowerCase().includes(searchTerm)
-  // );
-
   const deleteContact = contactId => {
     console.log('Deleted contact:', contactId);
     setContacts(prevContacts => {
@@ -45,12 +38,20 @@ function App() {
     });
   };
 
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
-    <div>
+    <div className={s.container}>
       <h1 className={s.uppercase}>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <SearchBox />
-      <ContactList contacts={contacts} onDelete={deleteContact} />
+      <SearchBox value={filter} onSearch={setFilter} />
+      {filteredContacts.length > 0 ? (
+        <ContactList contacts={filteredContacts} onDelete={deleteContact} />
+      ) : (
+        <p>Sorry, there are no contacts matching your search.</p>
+      )}
     </div>
   );
 }

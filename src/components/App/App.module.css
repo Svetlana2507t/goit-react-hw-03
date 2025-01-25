@@ -3,23 +3,17 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 600px;
+}
+
 .uppercase {
   text-transform: uppercase;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; */
 }
-
-/* .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} 
-
-.read-the-docs {
-  color: #888;
-}
-*/
