@@ -1,5 +1,7 @@
 .formWrapper {
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -34,8 +36,8 @@
 }
 
 .formWrapper button {
-  width: 100%;
   padding: 12px;
+  margin: 0 auto;
   background-color: #007bff;
   color: #ffffff;
   font-size: 18px;
